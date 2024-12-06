@@ -107,7 +107,7 @@ end
 M.open_url_with_app = function(apps, url)
 	for _, app in ipairs(apps) do
 		if fn.executable(app) == 1 then
-			local command = app .. " " .. fn.shellescape(url)
+			local command = fn.shellescape(app) .. " " .. fn.shellescape(url)
 			fn.jobstart(command, {
 				detach = true,
 				on_exit = function(_, code, _)
